@@ -13,7 +13,10 @@ class Transformer (PosExtract):
         sem = super().transform_node(msnode)
         sempos = sem.get('sempos')
         if sempos == 'n':
-            sem['proper'] = msnode.get('type') == 'proper'
+            if (self.lang) == 'es':
+                sem['proper'] = msnode.get('pos') == 'propn'
+            else:
+                sem['proper'] = msnode.get('type') == 'proper'
             sem['num'] = msnode.get('num','p')
         return sem
 

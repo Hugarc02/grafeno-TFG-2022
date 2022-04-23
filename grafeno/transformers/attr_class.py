@@ -51,8 +51,8 @@ class Transformer (WordNet):
             c = edge['child']
             if c in self.nodes:
                 c = self.nodes[c]
-            elif c in self.graph.node:
-                c = self.graph.node[c]
+            elif c in self.graph.nodes:
+                c = self.graph.nodes[c]
             else:
                 continue
             cl = self._get_class(c['synset']) if 'synset' in c else None

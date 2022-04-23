@@ -74,7 +74,7 @@ class Graph:
             self._next_node = 0
             self._g = nx.DiGraph()
         self.gram = self._g.graph
-        self.node = self._g.node
+        self.nodes = self._g.nodes
         if transformer:
             self.transformer = transformer(graph=self, **transformer_args)
         if text:

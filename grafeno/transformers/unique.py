@@ -36,5 +36,5 @@ class Transformer (Index):
         node_dict = self.node_from_concept
         # Record the concept nodes
         for n in sentence_nodes:
-            concept = g.node[n]['concept']
+            concept = g.nodes[n]['concept']
             node_dict[concept] = n

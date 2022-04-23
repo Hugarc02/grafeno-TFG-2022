@@ -31,5 +31,8 @@ class Transformer (Base):
         p = self.nodes[pid]
         c = self.nodes[cid]
         if 'concept' in p and 'concept' in c:
-            edge['functor'] = self.__translate.get(dep, self.__unknown)
+            if self.__unknown == 'KEEP': 
+                edge['functor'] = self.__translate.get(dep, dep)
+            else:
+                edge['functor'] = self.__translate.get(dep, self.__unknown)
         return edge

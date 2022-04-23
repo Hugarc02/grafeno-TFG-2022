@@ -32,7 +32,7 @@ class Linearizer ():
 
     def linearize (self):
         nodes = [ self.process_node(n)
-                 for n in self.graph.nodes()
+                 for n in [self.graph.nodes()[i] for i in range(len(self.graph.nodes()))]
                  if self.filter_node(n) ]
         edges = [ self.process_edge(n, m, edge)
                  for n, m, edge in self.graph.all_edges()

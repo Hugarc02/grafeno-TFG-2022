@@ -6,7 +6,7 @@ class Transformer (Base):
 
     def __init__ (self, **kwds):
         super().__init__(**kwds)
-        self.__nlp = spacy.load(self.lang)
+        self.__nlp = spacy.load("es_dep_news_trf")
         self._parser = 'spacy'
         self.graph.roots = []
 
