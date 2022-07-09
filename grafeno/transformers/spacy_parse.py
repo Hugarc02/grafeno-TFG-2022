@@ -21,11 +21,17 @@ class Transformer (Base):
     def __process_node (self, token):
         temp_id = '_t_{}'.format(token.i)
         self.__current_temp_id = temp_id
+        if len(token.morph.get('Person')) == 1: per = token.morph.get("Person")[0]
+        else: per = '0'
+        if len(token.morph.get('Tense')) == 1: ten = token.morph.get("Tense")[0]
+        else: ten = 'None'
         self.nodes[temp_id] = self.transform_node({
             'lemma': token.lemma_,
             'pos': token.pos_.lower(),
             'tag': token.tag_.lower(),
-            'spacy_tok': token
+            'spacy_tok': token,
+            'person': per,
+            'tense': ten
         })
         for c in token.children:
             c_id = self.__process_node(c)
